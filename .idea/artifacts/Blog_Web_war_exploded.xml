@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Blog_Web:war exploded">
+    <output-path>$PROJECT_DIR$/Blog_Web/target/Blog_Web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Blog_Web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="Blog_Service-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="Blog_Service" />
+          </element>
+          <element id="archive" name="Blog_Dao-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="Blog_Dao" />
+          </element>
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Blog_Web/target/Blog_Web/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="Blog_Web/web/Web" />
+    </root>
+  </artifact>
+</component>
