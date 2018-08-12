@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--加载db.properties文件中的内容-->
+    <context:property-placeholder location="classpath*:db.properties"/>
+    <!--配置数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--注入属性值-->
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!--sqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--加载mybatis的配置文件-->
+        <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"/>
+        <!--数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--mapper扫描器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--扫描包路径，扫描多个包，中间使用半角逗号隔开-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="basePackage" value="com.ball.blog.mapper"/>
+    </bean>
+</beans>

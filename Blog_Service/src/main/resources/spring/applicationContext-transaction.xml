@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--定义一个事务管理器
+        对mybatis操作数据库的数据控制，spring使用jdbc控制类
+        dataSource在applicationContext-dao.xml配置了
+    -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--通知-->
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <!--传播行为-->
+            <tx:method name="save*" />
+            <tx:method name="delete*" />
+            <tx:method name="insert*" />
+            <tx:method name="update*" />
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--   proxy-target-class属性值决定是基于接口的还是基于类的代理被创建。如果proxy-target-class 属性值被设置为true，那么基于类的代理将起作用（这时需要cglib库）。如果proxy-target-class属值被设置为false或者这个属性被省略，那么标准的JDK 基于接口的代理-->
+    <aop:aspectj-autoproxy  proxy-target-class="true"/>
+    <!--aop-->
+    <aop:config>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ball.blog.service.*.*(..))"/>
+    </aop:config>
+</beans>
