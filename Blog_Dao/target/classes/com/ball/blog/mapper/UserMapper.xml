@@ -2,9 +2,37 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper——用户mapper-->
 <mapper namespace="com.ball.blog.mapper.UserMapper">
-    <select id="selectAll" resultType="user">
-        SELECT  * FROM user 
+    <!--定义商品查询的sql片段 商品查询条件-->
+    <sql id="user_where">
+            <if test="username!=null || username!=''">
+                username like '%${username}%'
+            </if>
+    </sql>
+    <select id="selectUserList" parameterType="user" resultType="user">
+        SELECT  * FROM user
+        <where>
+            <include refid="user_where"/>
+        </where>
     </select>
-
+    <select id="login" parameterType="map" resultType="user">
+        select * from user where username=#{username} and password=#{password}
+    </select>
+    <insert id="register" parameterType="user">
+        insert into user value (#{id},#{username},#{password},#{head},#{age},#{career},#{permission},#{qq})
+    </insert>
+    <select id="selectByUsername" parameterType="string" resultType="user">
+        select * from user where username=#{username}
+    </select>
+    <select id="selectById" parameterType="int" resultType="user">
+        select * from user where id=#{id}
+    </select>
+    <update id="updateUser" parameterType="user">
+        update user set username=#{username},password=#{password},head=#{head},age=#{age},career=#{career},permission=#{permission},qq=#{qq}
+        where id=#{id}
+    </update>
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
 </mapper>

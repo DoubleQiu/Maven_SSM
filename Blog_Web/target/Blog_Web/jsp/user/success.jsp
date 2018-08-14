@@ -12,5 +12,7 @@
 </head>
 <body>
 success
+<br>
+<p>${user.career}</p>
 </body>
 </html>

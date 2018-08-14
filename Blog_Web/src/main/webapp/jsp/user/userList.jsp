@@ -8,6 +8,7 @@
 <c:forEach items="${userList}" var="user">
     <p>${user.username}</p>
     <p>${user.password}</p>
+    <p><img src="${user.head}" width="50px" height="50px"></p>
     <p>${user.qq}</p>
 </c:forEach>
 </body>

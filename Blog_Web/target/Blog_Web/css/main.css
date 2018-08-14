@@ -1,0 +1,741 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    color: #333;
+    font-family: "微软雅黑",serif;
+}
+
+ul {
+
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    opacity: 0.5;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+.base{
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.base .header {
+    height: 80px;
+    background: url("../images/logo.png") no-repeat;
+}
+
+.nav {
+    height: 60px;
+    background: rgba(240, 240, 240, .1);
+    border: 1px solid rgba(240, 240, 240, .9);
+}
+
+.nav .user-info{
+    float: right;
+    margin-left: 35px;
+    margin-right: 0;
+}
+.nav .user-info li a{
+    font-size: 16px;
+}
+
+.nav ul {
+    margin: 0 20px;
+    padding: 0;
+    float: left;
+}
+.nav ul li{
+    display: inline-block;
+}
+
+.nav ul li a {
+    line-height: 60px;
+    padding-right: 20px;
+    color: #333;
+    font-size: 20px;
+    opacity: 1;
+}
+
+.nav .search {
+    text-align: right;
+    margin-right: 20px;
+    line-height: 60px;
+    height: 32px;
+}
+
+.nav .search input {
+    margin: 0;
+    padding: 0 5px;
+    height: 40px;
+    border: 1px solid rgba(230, 230, 230, .8);
+}
+
+.nav .search button {
+    height: 42px;
+    width: 42px;
+    margin-left: -4px;
+    background: rgba(230, 230, 230, .4);
+    border: none;
+}
+.nav .search button i{
+    text-align: center;
+}
+
+.control {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.control .control-left{
+    width: 730px;
+    float: left;
+}
+.control-left .section {
+    width: 730px;
+    border: 1px solid rgba(240, 240, 240, .9);
+    margin-bottom: 20px;
+ }
+.control-left .comment{
+    border: 1px solid rgba(240, 240, 240, .9);
+    margin-bottom: 20px;
+}
+.control-left .release{
+    border: 1px solid rgba(240, 240, 240, .9);
+    margin-bottom: 20px;
+
+}
+.control-left .section button{
+    float: right;
+    height: 30px;
+    width: 90px;
+    right: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: white;
+    background: rgba(0,0,238,0.5);
+}
+.control-left .section button:hover{
+    cursor: pointer;
+}
+.control-left .main{
+    margin-left: 20px;
+}
+.control-left .main .title{
+    margin-left: 0;
+    padding-bottom: 5px;
+}
+.control-left .main .line{
+    padding: 5px 0;
+}
+.control-left .main .line input{
+    background-color: white;
+    border: none;
+    color: #333;
+}
+
+.section .title {
+    margin: 10px 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(240, 240, 240, .9);
+}
+.comment .title{
+    margin: 10px 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(240, 240, 240, .9);
+}
+.release .title{
+    margin: 10px 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(240, 240, 240, .9);
+}
+.comment .content{
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(240, 240, 240);
+}
+.comment .content img{
+    vertical-align: bottom;
+    width: 40px;
+}
+.comment .content small{
+    position: relative;
+    float: right;
+    top: 25px;
+
+}
+
+
+.release .content{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.release .commit{
+    text-align: right;
+    margin-right: 20px;
+
+}
+.release .commit button{
+    margin-bottom: 10px;
+    height: 30px;
+    width: 90px;
+    right: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: white;
+    background: rgba(0,0,238,0.5);
+}
+.release .commit button:hover{
+    cursor: pointer;
+}
+.release .content textarea{
+    width: 680px;
+    height: 80px;
+}
+.section .article {
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #555;
+
+}
+.section .footer{
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+.section .article .article-date {
+    padding: 5px 0;
+}
+
+.section .article .article-date strong {
+    color: darkred;
+    opacity: 0.5;
+}
+
+.section .article .article-title {
+    padding: 5px 0;
+
+}
+
+.section .article .article-context {
+    padding: 5px 0;
+
+}
+
+.section .article .article-footer {
+    padding-bottom: 10px;
+    text-align: right;
+
+}
+
+.aside {
+    width: 246px;
+    height: 300px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(240, 240, 240, .9);
+}
+
+
+
+.control .aside-base .aside .title {
+    margin: 10px 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(240, 240, 240, .9);
+}
+
+.control .aside-base .aside .info {
+    position: absolute;
+}
+.control .aside-base .aside ul {
+    margin-bottom: 50px;
+}
+.control .aside-base .aside ul li{
+    padding: 5px 0;
+}
+
+.control .aside-base .aside .info .head {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    left: calc(50% - 85px);
+    top:10px;
+    border: 1px solid rgba(240, 240, 240, .9);
+    /*background-image: url("../images/head.jpg");*/
+    /*background-size: cover;*/
+    border-radius: 20px;
+}
+
+.control .aside-base .aside .info em {
+    position: relative;
+    left: -90px;
+    top: 40px;
+    /*left: 80px;*/
+    /*top: 21px;*/
+}
+
+
+.control .aside-base div:nth-child(2) {
+    height: 220px;
+}
+
+.control .aside-base div:nth-child(3) {
+    height: 220px;
+}
+.login-title{
+    padding-top: 180px;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #666;
+    background:#666;
+}
+.login-title img{
+    position: relative;
+    left: 45px;
+}
+.login{
+    height: 352px;
+    background: -webkit-gradient(linear,left top, left bottom,from(#666),to(#fff));
+}
+.login .msg{
+    text-align: center;
+    color: darkred;
+    opacity: 0.5;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.login form{
+    position: relative;
+    width: 300px;
+    left: calc(50% - 150px);
+    padding: 50px;
+    border:  1px solid rgba(240, 240, 240, .9);
+    background: white;
+
+}
+.login form .content{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.login form .content small{
+    margin-top: 10px;
+    color: darkred;
+    opacity: 0.5;
+    text-align: right;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: -30px;
+    font-size: 18px;
+}
+.login form .content input{
+    border: none;
+    width: 280px;
+    border-bottom: 1px solid #eee;
+    padding: 2px 5px;
+    color: #aaa;
+    font-size: 20px;
+}
+.login form .footer{
+    padding: 10px;
+    margin-top: 20px;
+}
+.login form .footer a{
+    float: left;
+}
+.login form .footer button{
+
+    margin-bottom: 10px;
+    height: 30px;
+    width: 90px;
+    right: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: white;
+    background: rgba(0,0,238,0.5);
+    float: right;
+}
+.login form .footer button:hover{
+    cursor: pointer;
+}
+.register .login{
+    height: 555px;
+    background: -webkit-gradient(linear,left top, left bottom,from(#666),to(#fff));
+}
+.register-title{
+    padding-top: 10px;
+    text-align: center;
+    color: #fff;
+    background:#666;
+}
+/*后台界面样式*/
+/*.back-base{*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*background: #555555;*/
+/*}*/
+ .back-nav{
+     box-sizing: border-box;
+     float: left;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(198,47,47,1);
+    border:1px solid rgba(240, 240, 240, .9);
+}
+ .back-nav .back-nav-head {
+    position:absolute;
+    width: 250px;
+    height: 250px;
+    /*background: aquamarine;*/
+    border-bottom:1px dashed rgba(240, 240, 240, .9);
+}
+
+.back-nav .back-nav-head img{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    left: calc(50% - 50px);
+    top:30px;
+}
+.back-nav .back-nav-head hr{
+    margin-top: -20px;
+    color:  rgba(240, 240, 240, .9);
+}
+ .back-nav   .back-name{
+    position: relative;
+    top: 170px;
+    left:70px;
+    font-size: 20px;
+    padding: 2px 20px;
+    color: white;
+    opacity: 0.8;
+}
+.back-nav .back-left-nav{
+    width: 250px;
+    position: absolute;
+}
+.back-nav .back-left-nav ul{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 250px;
+}
+ .back-nav .back-left-nav ul li{
+    padding: 20px 60px;
+     border-right: 2px solid white;
+}
+.back-nav .back-left-nav ul li:hover{
+     background-color:white;
+}
+#color-red{
+    color: white;
+    opacity: 1;
+}
+#color-black{
+    color: black;
+    opacity: 1;
+}
+#bg-white{
+    background-color: rgba(172,0,0,.6);
+}
+.back-nav .back-left-nav ul li:hover  a{
+    color: rgba(198,47,47,1);
+    text-decoration: none;
+    opacity: 0.8;
+}
+.back-nav .back-left-nav ul li a{
+    color: white;
+    font-size: 18px;
+    opacity: 0.8;
+}
+.back-right{
+    position: absolute;
+    box-sizing: border-box;
+    float: left;
+    width: calc(100% - 250px);
+    left: 250px;
+    height: 100%;
+    border-right:1px solid rgba(240, 240, 240, .9);
+    border-bottom:1px solid rgba(240, 240, 240, .9);
+    border-top:1px solid rgba(240, 240, 240, .9);
+    background:url("../images/back-bg.png");
+    overflow: hidden;
+}
+.back-right .back-bg{
+    position: relative;
+    left: 250px;
+    top: 80px;
+}
+.back-right .back-right-nav{
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    top:37px;
+    /*background-color: white;*/
+    border:1px solid rgba(240, 240, 240, .9);
+}
+.back-right .back-right-nav .back-title{
+    float:left ;
+    margin-left: 50px;
+    line-height: 50px;
+   font-size: 20px;
+    color: #fff;
+}
+.back-right .back-right-nav ul{
+    float: right;
+    margin-right: 50px;
+}
+.back-right .back-right-nav ul li{
+    display: inline-block;
+    padding: 0 20px;
+}
+.back-right .back-right-nav ul li a{
+    color: white;
+    opacity: 1;
+}
+.back-right .back-right-left-nav{
+    position: relative;
+    width: 200px;
+    height: 316px;
+    margin: 20px;
+    top: 128px;
+    border-right:1px solid rgba(240, 240, 240, .9);
+}
+.back-right .back-right-left-nav ul{
+    padding: 0;
+    margin: 0;
+}
+.back-right .back-right-left-nav ul li{
+    padding: 25px 5px;
+
+}
+.back-right .back-right-left-nav ul li:hover a{
+    text-decoration: none;
+}
+.back-right .back-right-left-nav ul li a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    opacity: 1;
+    border-bottom: 1px solid rgba(240, 240, 240, .9);
+}
+
+.back-right .back-comment{
+    position: relative;
+    max-width: 730px;
+    height: 480px;
+    left: 300px;
+    top: -280px;
+}
+
+.back-right .back-comment .back-title{
+    margin:0 20px;
+    padding: 20px 0 5px 0;
+    font-size: 18px;
+    color: #fff;
+    border-bottom: 1px solid rgba(240, 240, 240, .9);
+}
+.back-right .back-comment .back-title .search{
+    float: right;
+}
+.back-right .back-comment .back-title .search small{
+    position: relative;
+    top: -20px;
+    left: -80px;
+    color: rgba(198,47,47,1);
+    font-size: 20px;
+}
+.back-right .back-comment .back-title .search input{
+    position: relative;
+    top: -35px;
+    margin: 0;
+    padding: 0 5px;
+    height: 32px;
+    border: 1px solid rgb(230, 230, 230);
+}
+.back-right .back-comment .back-title .search button{
+    height: 32px;
+    width: 32px;
+    position: relative;
+    margin-left: -5px;
+    top: -20px;
+    background: white;
+    opacity: 0.8;
+    border: none;
+}
+
+.back-right .back-comment .back-title .search button i{
+    position: relative;
+    margin-top: -8px;
+    vertical-align: top;
+}
+
+.back-right .back-comment table {
+    margin: 10px 20px;
+    width: 690px;
+    height: 350px;
+}
+.back-right .back-comment table th{
+    border-bottom:  1px solid rgba(240, 240, 240, .6);
+    font-size: 16px;
+    color: white;
+}
+
+.back-right .back-comment table tr{
+    border: none;
+    color: white;
+}
+ .back-right .back-comment table tr td{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    border-bottom:  1px solid rgba(240, 240, 240, .9);
+}
+.back-right .back-comment table tr td a:hover{
+    cursor: pointer;
+}
+.back-right .back-comment table tr td  .edit{
+    display: inline-block;
+    height: 35px;
+    width: 70px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    line-height: 35px;
+    background: rgba(0,0,238,0.5);
+    border: none;
+}
+.back-right .back-comment table tr td  .delete{
+    display: inline-block;
+    height: 35px;
+    width: 70px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    background: rgba(172,0,0,0.5);
+}
+.back-right .back-comment table tr td img{
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+}
+
+
+.login form{
+    position: relative;
+    width: 300px;
+    left: calc(50% - 150px);
+    padding: 50px;
+    border:  1px solid rgba(240, 240, 240, .9);
+    background: white;
+
+}
+.back-comment form .content{
+
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.back-comment form .content input{
+    position: relative;
+    top: 50px;
+    left: 200px;
+    border: none;
+    width: 280px;
+    border-bottom: 1px solid #eee;
+    padding: 2px 5px;
+    color: white;
+    font-size: 20px;
+    background-color:rgba(255,255,255,0);
+}
+.back-comment form .content select{
+    position: relative;
+    top: 50px;
+    left: 200px;
+    border: none;
+    width: 280px;
+    border-bottom: 1px solid #eee;
+    padding: 2px 5px;
+    color: white;
+    font-size: 20px;
+    background-color:rgba(255,255,255,0);
+}
+.back-comment form .content textarea{
+    position: relative;
+    top: 50px;
+    left: 200px;
+    border: none;
+    width: 350px;
+    height: 150px;
+    border-bottom: 1px solid #eee;
+    padding: 2px 5px;
+    color: black;
+    opacity: 0.5;
+    font-size: 20px;
+}
+.back-comment form .content select option{
+    background-color: #be875e;
+}
+.back-comment form .footer{
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.back-comment form .footer button{
+    position: relative;
+    margin-bottom: 10px;
+    height: 40px;
+    width: 290px;
+    left: 200px;
+    top: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: white;
+    background: rgba(0,0,238,0.5);
+}
+.back-comment form .footer button:hover{
+    cursor: pointer;
+}
+
+.back-right .back-comment table tr td  .blog-edit{
+    height: 35px;
+    width: 50px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background: rgba(0,0,238,0.5);
+    border: none;
+}
+.back-right .back-comment table tr td  .blog-delete{
+
+    height: 35px;
+    width: 50px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    background: rgba(172,0,0,0.5);
+}

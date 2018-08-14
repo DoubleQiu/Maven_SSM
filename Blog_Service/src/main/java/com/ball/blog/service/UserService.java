@@ -1,16 +1,16 @@
 package com.ball.blog.service;
 
-import com.ball.blog.mapper.UserMapper;
 import com.ball.blog.po.User;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Map;
 
-public class UserService {
-    @Autowired
-    private UserMapper userMapper;
-
-    public List<User> selectAll(){
-        return userMapper.selectAll();
-    }
+public interface UserService {
+    List<User> selectUserList(User user);
+    User login(Map<String,String> map);
+    void  register(User user);
+    User selectByUsername(String username);
+    void updateUser(User user);
+    User selectById(Integer id);
+    void deleteUser(Integer id);
 }
