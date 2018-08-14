@@ -22,8 +22,8 @@
     <div class="back-left-nav">
         <ul>
             <li ><a href="<c:url value="/jsp/Blog-Back/back-index.jsp"/> " ><i class="fa fa-home"></i>&#x3000;首&#x3000;&#x3000;页</a></li>
-            <li id="bg-white"><a href="<c:url value="/user/userinfo.action"/>"  id="color-red"><i class="fa fa-user"></i>&#x3000;用户管理</a></li>
-            <li><a href="#"><i class="fa fa-tags"></i>&#x3000;分类管理</a></li>
+            <li id="bg-white"><a href="<c:url value="/user/userinfo.action"/>"  id="color-red"><i class="fa fa-user"></i>&#x3000;&nbsp;用户管理</a></li>
+            <li><a href="<c:url value="/type/typeinfo.action"/>"><i class="fa fa-tags"></i>&#x3000;分类管理</a></li>
             <li><a href="#"><i class="fa fa-clipboard"></i>&#x3000;博文管理</a></li>
             <li><a href="#"><i class="fa fa-commenting"></i>&#x3000;评论管理</a></li>
         </ul>
@@ -71,7 +71,7 @@
                     <td>${user.career}</td>
                     <td>${user.permission}</td>
                     <td>
-                        <a onclick="return delUser();" class="delete" href="<c:url value="/user/deleteUser.action?id=${user.id}&permission=${user.permission}"/> " >删除</a>
+                        <a onclick="return delConfirm();" class="delete" href="<c:url value="/user/deleteUserByFind.action?id=${user.id}&permission=${user.permission}&username=${findName}"/> " >删除</a>
                     </td>
                 </tr>
             </c:forEach>

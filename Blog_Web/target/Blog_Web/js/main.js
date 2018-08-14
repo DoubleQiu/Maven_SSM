@@ -20,7 +20,7 @@ function bloggerEdit() {
         document.getElementsByTagName('form')[0].submit();
     }
 }
-function delUser() {
+function delConfirm() {
     if(confirm("确认删除？")==true){
         return true;
     }else{

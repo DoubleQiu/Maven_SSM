@@ -19,9 +19,13 @@
     <select id="login" parameterType="map" resultType="user">
         select * from user where username=#{username} and password=#{password}
     </select>
+
+
     <insert id="register" parameterType="user">
         insert into user value (#{id},#{username},#{password},#{head},#{age},#{career},#{permission},#{qq})
     </insert>
+
+
     <select id="selectByUsername" parameterType="string" resultType="user">
         select * from user where username=#{username}
     </select>

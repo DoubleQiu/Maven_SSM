@@ -136,13 +136,25 @@ public class UserController{
         }
         request.getRequestDispatcher("/user/userinfo.action").forward(request,response);
     }
-
+    @RequestMapping("/deleteUserByFind")
+    public void deleteUserByFind(Integer id, String permission,String username,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("username",username);
+        if(!permission.equals("博主")) {
+            userService.deleteUser(id);
+        }else{
+            request.setAttribute("msg","不可删除博主");
+        }
+        request.getRequestDispatcher("/user/findUserByUsername.action").forward(request,response);
+    }
     @RequestMapping("/findUserByUsername")
     public ModelAndView findUserByUsername(User user){
         List<User> userList=userService.selectUserList(user);
         ModelAndView modelAndView=new ModelAndView();
         modelAndView.addObject("findList",userList);
+        modelAndView.addObject("findName",user.getUsername());
         modelAndView.setViewName("/Blog-Back/back-user-find");
         return modelAndView;
     }
+
+
 }
