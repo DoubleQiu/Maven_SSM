@@ -6,4 +6,10 @@
         <!--批量扫描-->
         <package name="com.ball.blog.po"/>
     </typeAliases>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <!--设置数据库类型-->
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
 </configuration>

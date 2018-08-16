@@ -1,13 +1,14 @@
-html{
+html {
     width: 100%;
     height: 100%;
 }
+
 body {
     padding: 0;
     margin: 0;
-    height: 100%;
+    /*height: 100%;*/
     color: #333;
-    font-family: "微软雅黑",serif;
+    font-family: "微软雅黑", serif;
 }
 
 ul {
@@ -19,11 +20,12 @@ a {
     text-decoration: none;
     opacity: 0.5;
 }
-a:hover{
+
+a:hover {
     text-decoration: underline;
 }
 
-.base{
+.base {
     max-width: 1000px;
     margin: 20px auto;
 }
@@ -39,12 +41,13 @@ a:hover{
     border: 1px solid rgba(240, 240, 240, .9);
 }
 
-.nav .user-info{
+.nav .user-info {
     float: right;
     margin-left: 35px;
     margin-right: 0;
 }
-.nav .user-info li a{
+
+.nav .user-info li a {
     font-size: 16px;
 }
 
@@ -53,7 +56,8 @@ a:hover{
     padding: 0;
     float: left;
 }
-.nav ul li{
+
+.nav ul li {
     display: inline-block;
 }
 
@@ -86,7 +90,8 @@ a:hover{
     background: rgba(230, 230, 230, .4);
     border: none;
 }
-.nav .search button i{
+
+.nav .search button i {
     text-align: center;
 }
 
@@ -95,25 +100,29 @@ a:hover{
     margin-bottom: 20px;
 }
 
-.control .control-left{
+.control .control-left {
     width: 730px;
     float: left;
 }
+
 .control-left .section {
     width: 730px;
     border: 1px solid rgba(240, 240, 240, .9);
     margin-bottom: 20px;
- }
-.control-left .comment{
+}
+
+.control-left .comment {
     border: 1px solid rgba(240, 240, 240, .9);
     margin-bottom: 20px;
 }
-.control-left .release{
+
+.control-left .release {
     border: 1px solid rgba(240, 240, 240, .9);
     margin-bottom: 20px;
 
 }
-.control-left .section button{
+
+.control-left .section button {
     float: right;
     height: 30px;
     width: 90px;
@@ -122,22 +131,27 @@ a:hover{
     border: 1px solid #ccc;
     border-radius: 5px;
     color: white;
-    background: rgba(0,0,238,0.5);
+    background: rgba(0, 0, 238, 0.5);
 }
-.control-left .section button:hover{
+
+.control-left .section button:hover {
     cursor: pointer;
 }
-.control-left .main{
+
+.control-left .main {
     margin-left: 20px;
 }
-.control-left .main .title{
+
+.control-left .main .title {
     margin-left: 0;
     padding-bottom: 5px;
 }
-.control-left .main .line{
+
+.control-left .main .line {
     padding: 5px 0;
 }
-.control-left .main .line input{
+
+.control-left .main .line input {
     background-color: white;
     border: none;
     color: #333;
@@ -148,45 +162,51 @@ a:hover{
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(240, 240, 240, .9);
 }
-.comment .title{
+
+.comment .title {
     margin: 10px 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(240, 240, 240, .9);
 }
-.release .title{
+
+.release .title {
     margin: 10px 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(240, 240, 240, .9);
 }
-.comment .content{
+
+.comment .content {
     margin-left: 40px;
     margin-right: 20px;
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(240, 240, 240);
 }
-.comment .content img{
+
+.comment .content img {
     vertical-align: bottom;
     width: 40px;
 }
-.comment .content small{
+
+.comment .content small {
     position: relative;
     float: right;
     top: 25px;
 
 }
 
-
-.release .content{
+.release .content {
     margin-left: 20px;
     margin-bottom: 10px;
 }
-.release .commit{
+
+.release .commit {
     text-align: right;
     margin-right: 20px;
 
 }
-.release .commit button{
+
+.release .commit button {
     margin-bottom: 10px;
     height: 30px;
     width: 90px;
@@ -195,15 +215,18 @@ a:hover{
     border: 1px solid #ccc;
     border-radius: 5px;
     color: white;
-    background: rgba(0,0,238,0.5);
+    background: rgba(0, 0, 238, 0.5);
 }
-.release .commit button:hover{
+
+.release .commit button:hover {
     cursor: pointer;
 }
-.release .content textarea{
+
+.release .content textarea {
     width: 680px;
     height: 80px;
 }
+
 .section .article {
     margin-left: 40px;
     margin-right: 20px;
@@ -211,7 +234,8 @@ a:hover{
     border-bottom: 1px dashed #555;
 
 }
-.section .footer{
+
+.section .footer {
     margin-left: 40px;
     margin-bottom: 10px;
 }
@@ -250,8 +274,6 @@ a:hover{
     border: 1px solid rgba(240, 240, 240, .9);
 }
 
-
-
 .control .aside-base .aside .title {
     margin: 10px 20px;
     padding-bottom: 10px;
@@ -261,10 +283,12 @@ a:hover{
 .control .aside-base .aside .info {
     position: absolute;
 }
+
 .control .aside-base .aside ul {
     margin-bottom: 50px;
 }
-.control .aside-base .aside ul li{
+
+.control .aside-base .aside ul li {
     padding: 5px 0;
 }
 
@@ -272,68 +296,90 @@ a:hover{
     width: 180px;
     height: 180px;
     position: relative;
-    left: calc(50% - 85px);
-    top:10px;
+    left: calc(50% - 60px);
+    top: 10px;
     border: 1px solid rgba(240, 240, 240, .9);
     /*background-image: url("../images/head.jpg");*/
     /*background-size: cover;*/
     border-radius: 20px;
 }
 
+.control .aside-base .aside .info #head {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    left: calc(50% - 85px);
+    top: 10px;
+    border: 1px solid rgba(240, 240, 240, .9);
+    border-radius: 20px;
+}
+
 .control .aside-base .aside .info em {
     position: relative;
-    left: -90px;
-    top: 40px;
+    left: 100px;
+    top: 30px;
     /*left: 80px;*/
     /*top: 21px;*/
 }
 
+.control .aside-base .aside .info #head-name {
+    position: relative;
+    left: -90px;
+    top: 40px;
+}
 
 .control .aside-base div:nth-child(2) {
-    height: 220px;
+    /*height: 220px;*/
 }
 
 .control .aside-base div:nth-child(3) {
-    height: 220px;
+    /*height: 220px;*/
 }
-.login-title{
+
+.login-title {
     padding-top: 180px;
     text-align: center;
     font-size: 40px;
     color: #fff;
     padding-bottom: 30px;
     border-bottom: 1px solid #666;
-    background:#666;
+    background: #666;
 }
-.login-title img{
+
+.login-title img {
     position: relative;
     left: 45px;
 }
-.login{
+
+.login {
     height: 352px;
-    background: -webkit-gradient(linear,left top, left bottom,from(#666),to(#fff));
+    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#fff));
 }
-.login .msg{
+
+.login .msg {
     text-align: center;
     color: darkred;
     opacity: 0.5;
     font-size: 16px;
     margin-bottom: 20px;
 }
-.login form{
+
+.login form {
     position: relative;
     width: 300px;
     left: calc(50% - 150px);
     padding: 50px;
-    border:  1px solid rgba(240, 240, 240, .9);
+    border: 1px solid rgba(240, 240, 240, .9);
     background: white;
 
 }
-.login form .content{
+
+.login form .content {
     padding: 10px;
     margin-bottom: 20px;
 }
-.login form .content small{
+
+.login form .content small {
     margin-top: 10px;
     color: darkred;
     opacity: 0.5;
@@ -343,7 +389,8 @@ a:hover{
     margin-bottom: -30px;
     font-size: 18px;
 }
-.login form .content input{
+
+.login form .content input {
     border: none;
     width: 280px;
     border-bottom: 1px solid #eee;
@@ -351,14 +398,17 @@ a:hover{
     color: #aaa;
     font-size: 20px;
 }
-.login form .footer{
+
+.login form .footer {
     padding: 10px;
     margin-top: 20px;
 }
-.login form .footer a{
+
+.login form .footer a {
     float: left;
 }
-.login form .footer button{
+
+.login form .footer button {
 
     margin-bottom: 10px;
     height: 30px;
@@ -368,169 +418,197 @@ a:hover{
     border: 1px solid #ccc;
     border-radius: 5px;
     color: white;
-    background: rgba(0,0,238,0.5);
+    background: rgba(0, 0, 238, 0.5);
     float: right;
 }
-.login form .footer button:hover{
+
+.login form .footer button:hover {
     cursor: pointer;
 }
-.register .login{
+
+.register .login {
     height: 555px;
-    background: -webkit-gradient(linear,left top, left bottom,from(#666),to(#fff));
+    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#fff));
 }
-.register-title{
+
+.register-title {
     padding-top: 10px;
     text-align: center;
     color: #fff;
-    background:#666;
+    background: #666;
 }
+
 /*后台界面样式*/
 /*.back-base{*/
-    /*position: absolute;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*background: #555555;*/
+/*position: absolute;*/
+/*width: 100%;*/
+/*height: 100%;*/
+/*background: #555555;*/
 /*}*/
- .back-nav{
-     box-sizing: border-box;
-     float: left;
+.back-nav {
+    box-sizing: border-box;
+    float: left;
     width: 250px;
     height: 100%;
-    background-color: rgba(198,47,47,1);
-    border:1px solid rgba(240, 240, 240, .9);
+    background-color: rgba(198, 47, 47, 1);
+    border: 1px solid rgba(240, 240, 240, .9);
 }
- .back-nav .back-nav-head {
-    position:absolute;
+
+.back-nav .back-nav-head {
+    position: absolute;
     width: 250px;
     height: 250px;
     /*background: aquamarine;*/
-    border-bottom:1px dashed rgba(240, 240, 240, .9);
+    border-bottom: 1px dashed rgba(240, 240, 240, .9);
 }
 
-.back-nav .back-nav-head img{
+.back-nav .back-nav-head img {
     position: relative;
     width: 100px;
     height: 100px;
     border-radius: 50%;
     left: calc(50% - 50px);
-    top:30px;
+    top: 30px;
 }
-.back-nav .back-nav-head hr{
+
+.back-nav .back-nav-head hr {
     margin-top: -20px;
-    color:  rgba(240, 240, 240, .9);
+    color: rgba(240, 240, 240, .9);
 }
- .back-nav   .back-name{
+
+.back-nav .back-name {
     position: relative;
     top: 170px;
-    left:70px;
+    left: 70px;
     font-size: 20px;
     padding: 2px 20px;
     color: white;
     opacity: 0.8;
 }
-.back-nav .back-left-nav{
+
+.back-nav .back-left-nav {
     width: 250px;
     position: absolute;
 }
-.back-nav .back-left-nav ul{
+
+.back-nav .back-left-nav ul {
     margin: 0;
     padding: 0;
     position: relative;
     top: 250px;
 }
- .back-nav .back-left-nav ul li{
+
+.back-nav .back-left-nav ul li {
     padding: 20px 60px;
-     border-right: 2px solid white;
+    border-right: 2px solid white;
 }
-.back-nav .back-left-nav ul li:hover{
-     background-color:white;
+
+.back-nav .back-left-nav ul li:hover {
+    background-color: white;
 }
-#color-red{
+
+#color-red {
     color: white;
     opacity: 1;
 }
-#color-black{
+
+#color-black {
     color: black;
     opacity: 1;
 }
-#bg-white{
-    background-color: rgba(172,0,0,.6);
+
+#bg-white {
+    background-color: rgba(172, 0, 0, .6);
 }
-.back-nav .back-left-nav ul li:hover  a{
-    color: rgba(198,47,47,1);
+
+.back-nav .back-left-nav ul li:hover a {
+    color: rgba(198, 47, 47, 1);
     text-decoration: none;
     opacity: 0.8;
 }
-.back-nav .back-left-nav ul li a{
+
+.back-nav .back-left-nav ul li a {
     color: white;
     font-size: 18px;
     opacity: 0.8;
 }
-.back-right{
+
+.back-right {
     position: absolute;
     box-sizing: border-box;
     float: left;
     width: calc(100% - 250px);
     left: 250px;
     height: 100%;
-    border-right:1px solid rgba(240, 240, 240, .9);
-    border-bottom:1px solid rgba(240, 240, 240, .9);
-    border-top:1px solid rgba(240, 240, 240, .9);
-    background:url("../images/back-bg.png");
+    border-right: 1px solid rgba(240, 240, 240, .9);
+    border-bottom: 1px solid rgba(240, 240, 240, .9);
+    border-top: 1px solid rgba(240, 240, 240, .9);
+    background: url("../images/back-bg.png");
     overflow: hidden;
 }
-.back-right .back-bg{
+
+.back-right .back-bg {
     position: relative;
     left: 250px;
     top: 80px;
 }
-.back-right .back-right-nav{
+
+.back-right .back-right-nav {
     box-sizing: border-box;
     position: relative;
     width: 100%;
     height: 50px;
-    top:37px;
+    top: 37px;
     /*background-color: white;*/
-    border:1px solid rgba(240, 240, 240, .9);
+    border: 1px solid rgba(240, 240, 240, .9);
 }
-.back-right .back-right-nav .back-title{
-    float:left ;
+
+.back-right .back-right-nav .back-title {
+    float: left;
     margin-left: 50px;
     line-height: 50px;
-   font-size: 20px;
+    font-size: 20px;
     color: #fff;
 }
-.back-right .back-right-nav ul{
+
+.back-right .back-right-nav ul {
     float: right;
     margin-right: 50px;
 }
-.back-right .back-right-nav ul li{
+
+.back-right .back-right-nav ul li {
     display: inline-block;
     padding: 0 20px;
 }
-.back-right .back-right-nav ul li a{
+
+.back-right .back-right-nav ul li a {
     color: white;
     opacity: 1;
 }
-.back-right .back-right-left-nav{
+
+.back-right .back-right-left-nav {
     position: relative;
     width: 200px;
     height: 316px;
     margin: 20px;
     top: 128px;
-    border-right:1px solid rgba(240, 240, 240, .9);
+    border-right: 1px solid rgba(240, 240, 240, .9);
 }
-.back-right .back-right-left-nav ul{
+
+.back-right .back-right-left-nav ul {
     padding: 0;
     margin: 0;
 }
-.back-right .back-right-left-nav ul li{
+
+.back-right .back-right-left-nav ul li {
     padding: 25px 5px;
 
 }
-.back-right .back-right-left-nav ul li:hover a{
+
+.back-right .back-right-left-nav ul li:hover a {
     text-decoration: none;
 }
+
 .back-right .back-right-left-nav ul li a {
     display: inline-block;
     width: 100%;
@@ -541,7 +619,7 @@ a:hover{
     border-bottom: 1px solid rgba(240, 240, 240, .9);
 }
 
-.back-right .back-comment{
+.back-right .back-comment {
     position: relative;
     max-width: 730px;
     height: 480px;
@@ -549,24 +627,27 @@ a:hover{
     top: -280px;
 }
 
-.back-right .back-comment .back-title{
-    margin:0 20px;
+.back-right .back-comment .back-title {
+    margin: 0 20px;
     padding: 20px 0 5px 0;
     font-size: 18px;
     color: #fff;
     border-bottom: 1px solid rgba(240, 240, 240, .9);
 }
-.back-right .back-comment .back-title .search{
+
+.back-right .back-comment .back-title .search {
     float: right;
 }
-.back-right .back-comment .back-title .search small{
+
+.back-right .back-comment .back-title .search small {
     position: relative;
     top: -20px;
     left: -80px;
-    color: rgba(198,47,47,1);
+    color: rgba(198, 47, 47, 1);
     font-size: 20px;
 }
-.back-right .back-comment .back-title .search input{
+
+.back-right .back-comment .back-title .search input {
     position: relative;
     top: -35px;
     margin: 0;
@@ -574,12 +655,14 @@ a:hover{
     height: 32px;
     border: 1px solid rgb(230, 230, 230);
 }
-.back-right .back-comment .back-title #msg{
+
+.back-right .back-comment .back-title #msg {
     float: right;
-    color: rgba(198,47,47,1);
+    color: rgba(198, 47, 47, 1);
     font-size: 20px;
 }
-.back-right .back-comment .back-title .search button{
+
+.back-right .back-comment .back-title .search button {
     height: 32px;
     width: 32px;
     position: relative;
@@ -590,7 +673,7 @@ a:hover{
     border: none;
 }
 
-.back-right .back-comment .back-title .search button i{
+.back-right .back-comment .back-title .search button i {
     position: relative;
     margin-top: -8px;
     vertical-align: top;
@@ -601,26 +684,30 @@ a:hover{
     width: 690px;
     height: 350px;
 }
-.back-right .back-comment table th{
-    border-bottom:  1px solid rgba(240, 240, 240, .6);
+
+.back-right .back-comment table th {
+    border-bottom: 1px solid rgba(240, 240, 240, .6);
     font-size: 16px;
     color: white;
 }
 
-.back-right .back-comment table tr{
+.back-right .back-comment table tr {
     border: none;
     color: white;
 }
- .back-right .back-comment table tr td{
+
+.back-right .back-comment table tr td {
     padding: 0;
     margin: 0;
     text-align: center;
-    border-bottom:  1px solid rgba(240, 240, 240, .9);
+    border-bottom: 1px solid rgba(240, 240, 240, .9);
 }
-.back-right .back-comment table tr td a:hover{
+
+.back-right .back-comment table tr td a:hover {
     cursor: pointer;
 }
-.back-right .back-comment table tr td  .edit{
+
+.back-right .back-comment table tr td .edit {
     display: inline-block;
     height: 35px;
     width: 70px;
@@ -628,10 +715,11 @@ a:hover{
     border-radius: 5px;
     color: white;
     line-height: 35px;
-    background: rgba(0,0,238,0.5);
+    background: rgba(0, 0, 238, 0.5);
     border: none;
 }
-.back-right .back-comment table tr td  .delete{
+
+.back-right .back-comment table tr td .delete {
     display: inline-block;
     height: 35px;
     width: 70px;
@@ -640,30 +728,70 @@ a:hover{
     border-radius: 8px;
     color: white;
     border: none;
-    background: rgba(172,0,0,0.5);
+    background: rgba(172, 0, 0, 0.5);
 }
-.back-right .back-comment table tr td img{
+
+.back-right .back-comment table tr td img {
     width: 50px;
     height: 50px;
     border-radius: 8px;
 }
 
-
-.login form{
+.login form {
     position: relative;
     width: 300px;
     left: calc(50% - 150px);
     padding: 50px;
-    border:  1px solid rgba(240, 240, 240, .9);
+    border: 1px solid rgba(240, 240, 240, .9);
     background: white;
 
 }
-.back-comment form .content{
 
+.back-comment form .content {
     padding: 10px;
     margin-bottom: 20px;
 }
-.back-comment form .content input{
+
+.back-comment form .blog-content {
+    padding: 10px;
+    margin: 5px 10px;
+}
+
+.back-comment form .blog-content input {
+    border: none;
+    width: 100%;
+    padding: 10px 10px;
+    color: white;
+    font-size: 20px;
+    border-bottom: 1px solid #eee;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.back-comment form .blog-content button {
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    color: white;
+    background: rgba(0, 0, 238, 0.5);
+}
+
+.back-comment form .blog-content select {
+    border: none;
+    width: 100%;
+    padding: 10px 10px;
+    color: white;
+    font-size: 20px;
+    border-bottom: 1px solid #eee;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.back-comment form .blog-content select option {
+    background-color: #be875e;
+}
+
+.back-comment form .content input {
     position: relative;
     top: 50px;
     left: 200px;
@@ -673,9 +801,10 @@ a:hover{
     padding: 2px 5px;
     color: white;
     font-size: 20px;
-    background-color:rgba(255,255,255,0);
+    background-color: rgba(255, 255, 255, 0);
 }
-.back-comment form .content select{
+
+.back-comment form .content select {
     position: relative;
     top: 50px;
     left: 200px;
@@ -685,9 +814,10 @@ a:hover{
     padding: 2px 5px;
     color: white;
     font-size: 20px;
-    background-color:rgba(255,255,255,0);
+    background-color: rgba(255, 255, 255, 0);
 }
-.back-comment form .content textarea{
+
+.back-comment form .content textarea {
     position: relative;
     top: 50px;
     left: 200px;
@@ -700,15 +830,17 @@ a:hover{
     opacity: 0.5;
     font-size: 20px;
 }
-.back-comment form .content select option{
+
+.back-comment form .content select option {
     background-color: #be875e;
 }
-.back-comment form .footer{
+
+.back-comment form .footer {
     padding: 10px;
     margin-top: 20px;
 }
 
-.back-comment form .footer button{
+.back-comment form .footer button {
     position: relative;
     margin-bottom: 10px;
     height: 40px;
@@ -719,28 +851,66 @@ a:hover{
     border: 1px solid #ccc;
     border-radius: 5px;
     color: white;
-    background: rgba(0,0,238,0.5);
+    background: rgba(0, 0, 238, 0.5);
 }
-.back-comment form .footer button:hover{
+
+.back-comment form .footer button:hover {
     cursor: pointer;
 }
 
-.back-right .back-comment table tr td  .blog-edit{
+.back-right .back-comment table tr td .blog-edit {
+    line-height: 35px;
+    display: inline-block;
     height: 35px;
     width: 50px;
     text-align: center;
     border-radius: 5px;
     color: white;
-    background: rgba(0,0,238,0.5);
+    background: rgba(0, 0, 238, 0.5);
     border: none;
 }
-.back-right .back-comment table tr td  .blog-delete{
 
+.back-right .back-comment table tr td .blog-delete {
+    display: inline-block;
+    line-height: 35px;
     height: 35px;
     width: 50px;
     text-align: center;
     border-radius: 8px;
     color: white;
     border: none;
-    background: rgba(172,0,0,0.5);
+    background: rgba(172, 0, 0, 0.5);
+}
+
+.pagination {
+    margin: 0;
+    padding: 0;
+}
+
+.pagination li {
+    text-align: center;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.pagination li:hover {
+    background-color: darkseagreen;
+}
+
+.pagination li a {
+    color: white;
+    opacity: 1;
+}
+
+#findmsg {
+    float: right;
+    color: rgba(198, 47, 47, 1);
+    font-size: 20px;
 }

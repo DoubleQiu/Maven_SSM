@@ -24,8 +24,8 @@
             <li ><a href="<c:url value="/jsp/Blog-Back/back-index.jsp"/> " ><i class="fa fa-home"></i>&#x3000;首&#x3000;&#x3000;页</a></li>
             <li ><a href="<c:url value="/user/userinfo.action"/>"  ><i class="fa fa-user"></i>&#x3000;&nbsp;用户管理</a></li>
             <li id="bg-white"><a href="<c:url value="/type/typeinfo.action"/>" id="color-red"><i class="fa fa-tags" ></i>&#x3000;分类管理</a></li>
-            <li><a href="#"><i class="fa fa-clipboard"></i>&#x3000;博文管理</a></li>
-            <li><a href="#"><i class="fa fa-commenting"></i>&#x3000;评论管理</a></li>
+            <li><a href="<c:url value="/blog/bloginfo.action"/> "><i class="fa fa-clipboard"></i>&#x3000;博文管理</a></li>
+            <li><a href="<c:url value="/comment/commentinfo.action"/>"><i class="fa fa-commenting"></i>&#x3000;评论管理</a></li>
         </ul>
     </div>
 </div>
@@ -50,7 +50,7 @@
     </div>
     <div class="back-comment">
         <div class="back-title">
-            查询结果
+            查询结果<small id="findmsg">${msg}</small>
         </div>
         <table>
             <tr>
@@ -71,6 +71,52 @@
                     </td>
                 </tr>
             </c:forEach>
+            <tr>
+                <td colspan="8" style="border: none;padding: 20px 0;text-align: right">
+                    <ul class="pagination">
+                        <li>
+                            <a href="<c:url value="/type/findTypeByName.action?pageNum=${page.firstPage}&name=${findName}"/> ">F</a>
+                        </li>
+                        <li>
+                            <c:choose>
+                                <c:when test="${page.hasPreviousPage}">
+                                    <a href="<c:url value="/type/findTypeByName.action?pageNum=${page.prePage}&name=${findName}"/> ">&laquo;</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="<c:url value="#"/> ">&laquo;</a>
+                                </c:otherwise>
+                            </c:choose>
+                        </li>
+
+                        <c:forEach var="i" begin="1" end="${page.pages}">
+                            <c:if test="${page.pageNum ==i}">
+                                <li  style="background-color: darkseagreen;">
+                                    <a href="<c:url value="/type/findTypeByName.action?pageNum=${i}&name=${findName}"/>"
+                                    >${i}</a>
+                                </li>
+                            </c:if>
+                            <c:if test="${page.pageNum !=i}">
+                                <li>
+                                    <a href="<c:url value="/type/findTypeByName.action?pageNum=${i}&name=${findName}"/>">${i}</a>
+                                </li>
+                            </c:if>
+                        </c:forEach>
+                        <li>
+                            <c:choose>
+                                <c:when test="${page.hasNextPage}">
+                                    <a href="<c:url value="/type/findTypeByName.action?pageNum=${page.nextPage}&name=${findName}"/> ">&raquo;</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="<c:url value="#"/> ">&raquo;</a>
+                                </c:otherwise>
+                            </c:choose>
+                            </a></li>
+                        <li>
+                            <a href="<c:url value="/type/findTypeByName.action?pageNum=${page.lastPage}&name=${findName}"/> ">L</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
 
         </table>
     </div>

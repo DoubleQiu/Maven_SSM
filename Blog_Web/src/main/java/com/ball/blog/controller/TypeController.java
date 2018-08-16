@@ -1,7 +1,11 @@
 package com.ball.blog.controller;
 
+import com.ball.blog.po.Blog;
 import com.ball.blog.po.Type;
+import com.ball.blog.service.BlogService;
 import com.ball.blog.service.TypeService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,31 +23,57 @@ public class TypeController {
     @Resource(name="typeService")
     private TypeService typeService;
     private Type type;
+    @Resource(name="blogService")
+    private BlogService blogService;
     @RequestMapping("/typeinfo")
-    public ModelAndView typeinfo(Type type){
+    public ModelAndView typeinfo(Type type,Integer pageNum){
+        if(pageNum==null){
+            PageHelper.startPage(1,5);
+        }else {
+            PageHelper.startPage(pageNum,5);
+        }
         List<Type> typeList=typeService.selectTypeList(type);
+        PageInfo<Type> typePage=new PageInfo<>(typeList);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("typeList",typeList);
+        modelAndView.addObject("page",typePage);
         modelAndView.setViewName("/Blog-Back/back-type-info");
         return modelAndView;
     }
     @RequestMapping("/findTypeByName")
-    public ModelAndView findTypeByName(Type type){
+    public ModelAndView findTypeByName(Type type,Integer pageNum){
+        if(pageNum==null){
+            PageHelper.startPage(1,5);
+        }else {
+            PageHelper.startPage(pageNum,5);
+        }
         List<Type> typeList=typeService.selectTypeList(type);
+        PageInfo<Type> typePage=new PageInfo<>(typeList);
         ModelAndView modelAndView =new ModelAndView();
         modelAndView.addObject("findList",typeList);
+        modelAndView.addObject("page",typePage);
         modelAndView.addObject("findName",type.getName());
         modelAndView.setViewName("/Blog-Back/back-type-find");
         return modelAndView;
     }
     @RequestMapping("deleteType")
     public void deleteType(Integer id, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        typeService.deleteType(id);
+        Blog blog=blogService.selectBlogByTid(id);
+        if(blog!=null){
+            typeService.deleteType(id);
+        }else{
+            request.setAttribute("msg","分类下有博文！不可删除");
+        }
        request.getRequestDispatcher("/type/typeinfo.action").forward(request,response);
     }
     @RequestMapping("deleteTypeByFind")
     public void deleteTypeByFind(Integer id,String name, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        typeService.deleteType(id);
+        Blog blog=blogService.selectBlogByTid(id);
+        if(blog!=null){
+            typeService.deleteType(id);
+        }else{
+            request.setAttribute("msg","分类下有博文！不可删除");
+        }
         request.setAttribute("name",name);
         request.getRequestDispatcher("/type/findTypeByName.action").forward(request,response);
     }
@@ -70,24 +100,30 @@ public class TypeController {
     }
 
     @RequestMapping("updateType")
-    public void updateType(Type form, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public ModelAndView updateType(Type form) throws ServletException, IOException {
+        ModelAndView modelAndView=new ModelAndView();
         Type type1=typeService.selectTypeById(form.getId());
         type=typeService.selectTypeByName(form.getName());
         if(!type1.getName().equals(form.getName())){
             if(type!=null){
-                request.setAttribute("msg","该分类已经存在啦~");
-                request.setAttribute("type.name",form.getName());
-                request.setAttribute("type.sort",form.getSort());
-                request.setAttribute("id",form.getId());
-                request.getRequestDispatcher("/jsp/Blog-Back/back-type-edit.jsp").forward(request,response);
+                modelAndView.addObject("msg","该分类已经存在啦~");
+                modelAndView.setViewName("/Blog-Back/back-type-edit");
+                return modelAndView;
             }else{
                 typeService.updateType(form);
-                response.sendRedirect("/type/typeinfo.action");
+                return new ModelAndView("redirect:/type/typeinfo.action");
             }
         }else{
             typeService.updateType(form);
-            response.sendRedirect("/type/typeinfo.action");
+            return new ModelAndView("redirect:/type/typeinfo.action");
         }
-
+    }
+    @RequestMapping("/typeAllForBlog")
+    public ModelAndView typeAllForBlog(Type type){
+        List<Type> typeList=typeService.selectTypeList(type);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("typeList",typeList);
+        modelAndView.setViewName("/Blog-Back/back-blog-add");
+        return modelAndView;
     }
 }

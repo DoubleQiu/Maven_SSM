@@ -97,8 +97,8 @@
                     <i class="fa fa-user"></i>&nbsp;&nbsp;我的头像
                 </div>
                 <div class="info">
-                    <img class="head" src="${user.head}">
-                    <em>${user.username}</em>
+                    <img class="head" id="head" src="${user.head}">
+                    <em id="head-name">${user.username}</em>
                 </div>
 
             </div>

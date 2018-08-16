@@ -13,6 +13,7 @@ public interface UserMapper {
     User login(Map<String,String> map);
     void register(User user);
     User selectByUsername(String username);
+    User selectByUserPermission(String permission);
     void updateUser(User user);
     User selectById(Integer id);
     void deleteUser(Integer id);

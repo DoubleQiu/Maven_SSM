@@ -1,7 +1,13 @@
 package com.ball.blog.controller;
 
+import com.ball.blog.po.Blog;
+import com.ball.blog.po.Type;
 import com.ball.blog.po.User;
+import com.ball.blog.service.BlogService;
+import com.ball.blog.service.TypeService;
 import com.ball.blog.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,7 +28,10 @@ import java.util.Random;
 public class UserController{
     @Resource(name = "userService")
     private UserService userService;
-
+    @Resource(name = "typeService")
+    private TypeService typeService;
+    @Resource(name = "blogService")
+    private BlogService blogService;
     private User user;
 
     @RequestMapping("/login")
@@ -32,9 +41,17 @@ public class UserController{
         map.put("username",username);
         map.put("password",password);
         user=userService.login(map);
+        User blogger=userService.selectByUserPermission("博主");
+        List<Type> typeList=typeService.selectTypeList(null);
+        List<Blog> blogList=blogService.selectBlogList(null);
         if(user!=null){
+            //用户信息
             session.setAttribute("user",user);
-            modelAndView.setViewName("/Blog-Portal/blogger");
+            session.setAttribute("blogger",blogger);
+            session.setAttribute("typeList",typeList);
+            session.setAttribute("blogList",blogList);
+
+            modelAndView.setViewName("/Blog-Portal/index");
         }
         else {
             modelAndView.addObject("username",username);
@@ -119,10 +136,17 @@ public class UserController{
     }
 
     @RequestMapping("/userinfo")
-    public ModelAndView userinfo(User user){
+    public ModelAndView userinfo(User user,Integer pageNum){
+        if(pageNum==null){
+            PageHelper.startPage(1,5);
+        }else {
+            PageHelper.startPage(pageNum,5);
+        }
         List<User> userList = userService.selectUserList(user);
+        PageInfo<User> userPage=new PageInfo<>(userList);
         ModelAndView modelAndView=new ModelAndView();
         modelAndView.addObject("userList",userList);
+        modelAndView.addObject("page",userPage);
         modelAndView.setViewName("/Blog-Back/back-user-info");
         return modelAndView;
     }
@@ -147,10 +171,17 @@ public class UserController{
         request.getRequestDispatcher("/user/findUserByUsername.action").forward(request,response);
     }
     @RequestMapping("/findUserByUsername")
-    public ModelAndView findUserByUsername(User user){
+    public ModelAndView findUserByUsername(User user,Integer pageNum){
+        if(pageNum==null){
+            PageHelper.startPage(1,5);
+        }else {
+            PageHelper.startPage(pageNum,5);
+        }
         List<User> userList=userService.selectUserList(user);
         ModelAndView modelAndView=new ModelAndView();
+        PageInfo<User> userPage=new PageInfo<>(userList);
         modelAndView.addObject("findList",userList);
+        modelAndView.addObject("page",userPage);
         modelAndView.addObject("findName",user.getUsername());
         modelAndView.setViewName("/Blog-Back/back-user-find");
         return modelAndView;

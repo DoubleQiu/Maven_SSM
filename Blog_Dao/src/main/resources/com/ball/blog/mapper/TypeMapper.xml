@@ -30,7 +30,6 @@
     <insert id="insertType" parameterType="type">
         insert into type value (#{id},#{name},#{sort})
     </insert>
-
     <update id="updateType" parameterType="type">
         update type set name=#{name},sort=#{sort} where id=#{id}
     </update>

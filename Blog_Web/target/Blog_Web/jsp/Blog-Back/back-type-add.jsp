@@ -22,8 +22,8 @@
             <li ><a href="<c:url value="/jsp/Blog-Back/back-index.jsp"/> " ><i class="fa fa-home"></i>&#x3000;首&#x3000;&#x3000;页</a></li>
             <li ><a href="<c:url value="/user/userinfo.action"/>"  ><i class="fa fa-user"></i>&#x3000;&nbsp;用户管理</a></li>
             <li id="bg-white"><a href="<c:url value="/type/typeinfo.action"/>" id="color-red"><i class="fa fa-tags" ></i>&#x3000;分类管理</a></li>
-            <li><a href="#"><i class="fa fa-clipboard"></i>&#x3000;博文管理</a></li>
-            <li><a href="#"><i class="fa fa-commenting"></i>&#x3000;评论管理</a></li>
+            <li><a href="<c:url value="/blog/bloginfo.action"/> "><i class="fa fa-clipboard"></i>&#x3000;博文管理</a></li>
+            <li><a href="<c:url value="/comment/commentinfo.action"/>"><i class="fa fa-commenting"></i>&#x3000;评论管理</a></li>
         </ul>
     </div>
 </div>

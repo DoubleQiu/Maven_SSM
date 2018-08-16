@@ -13,4 +13,5 @@ public interface UserService {
     void updateUser(User user);
     User selectById(Integer id);
     void deleteUser(Integer id);
+    User selectByUserPermission(String permission);
 }

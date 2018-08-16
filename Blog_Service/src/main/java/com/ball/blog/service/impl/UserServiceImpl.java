@@ -50,4 +50,9 @@ public class UserServiceImpl implements UserService{
     public void deleteUser(Integer id) {
         userMapper.deleteUser(id);
     }
+
+    @Override
+    public User selectByUserPermission(String permission) {
+        return userMapper.selectByUserPermission(permission);
+    }
 }

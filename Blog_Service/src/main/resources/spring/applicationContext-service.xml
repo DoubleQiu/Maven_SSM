@@ -6,4 +6,6 @@
 ">
     <bean id="userService" class="com.ball.blog.service.impl.UserServiceImpl"/>
     <bean id="typeService" class="com.ball.blog.service.impl.TypeServiceImpl"/>
+    <bean id="blogService" class="com.ball.blog.service.impl.BlogServiceImpl"/>
+    <bean id="commentService" class="com.ball.blog.service.impl.CommentServiceImpl"/>
 </beans>
