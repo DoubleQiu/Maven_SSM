@@ -27,3 +27,11 @@ function delConfirm() {
         return false;
     }
 }
+function checkUserId() {
+    var user_id=document.getElementById("user_id").value;
+    alert(user_id);
+    if(user_id==""){
+        document.getElementsByTagName("form")[0].action="#";
+        alert("评论前请先登录！");
+    }
+}

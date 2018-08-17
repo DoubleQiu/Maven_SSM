@@ -39,4 +39,29 @@ public class BlogServiceImpl implements BlogService {
     public Blog selectBlogByTid(Integer id) {
         return blogMapper.selectBlogByTid(id);
     }
+
+    @Override
+    public List<Blog> findBlogByType(Integer id) {
+        return blogMapper.findBlogByType(id);
+    }
+
+    @Override
+    public List<Blog> frontSelectBlogFind(Blog blog) {
+        return blogMapper.frontSelectBlogFind(blog);
+    }
+
+    @Override
+    public void updateBlogRead(Blog blog) {
+        blogMapper.updateBlogRead(blog);
+    }
+
+    @Override
+    public List<Blog> frontSelectBlogList(Blog blog) {
+        return blogMapper.frontSelectBlogList(blog);
+    }
+
+    @Override
+    public Blog frontSelectBlogById(Integer id) {
+        return blogMapper.frontSelectBlogById(id);
+    }
 }

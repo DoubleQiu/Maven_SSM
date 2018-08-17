@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -62,6 +63,14 @@ public class CommentController {
         commentService.deleteComment(id);
         request.setAttribute("content",content);
         request.getRequestDispatcher("/comment/selectCommentByContent.action").forward(request,response);
+    }
+    @RequestMapping("/insertComment")
+    public void insertComment(Comment comment,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        comment.setTime(new Date());
+        commentService.insertComment(comment);
+        int id=comment.getBlog_id();
+        request.getRequestDispatcher("/blog/frontBlogInfo.action?id="+id+"").forward(request,response);
+//        return new ModelAndView("redirect:/blog/frontBlogInfo.action");
     }
 
 }

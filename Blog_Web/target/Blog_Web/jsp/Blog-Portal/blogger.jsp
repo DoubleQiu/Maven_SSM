@@ -15,7 +15,7 @@
     <div class="header"></div>
     <div class="nav">
         <ul>
-            <li><a href="#">首&#x3000;页</a></li>
+            <li><a href="<c:url value="/user/indexPro.action"/> ">首&#x3000;页</a></li>
 
         </ul>
 
@@ -24,13 +24,13 @@
                 <c:when test="${not empty user}">
                     <li>${user.username}&#x3000;&#x3000;</li>
                     <li><a href="<c:url value="/user/logout.action"/>">注&#x3000;销</a></li>
+                    <li> <a href="<c:url value="/jsp/Blog-Portal/blogger.jsp"/> ">个人信息</a></li>
                 </c:when>
                 <c:otherwise>
                     <li><a href="<c:url value="/jsp/Blog-Portal/login.jsp"/> ">登&#x3000;录</a></li>
                     <li><a href="<c:url value="/jsp/Blog-Portal/register.jsp"/>">注&#x3000;册</a></li>
                 </c:otherwise>
             </c:choose>
-            <li> <a href="<c:url value="/jsp/Blog-Portal/blogger.jsp"/> ">个人信息</a></li>
         </ul>
     </div>
 

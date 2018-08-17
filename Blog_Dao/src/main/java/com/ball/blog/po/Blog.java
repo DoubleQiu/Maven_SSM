@@ -2,6 +2,7 @@ package com.ball.blog.po;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Blog implements Serializable{
     private Integer id;
@@ -12,6 +13,24 @@ public class Blog implements Serializable{
     private Integer read;
     private Integer type_id;
     private Type type;
+    private List<Comment> commentList;
+    private Integer count;
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
 
     public Type getType() {
         return type;

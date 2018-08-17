@@ -6,6 +6,24 @@ public class Type implements Serializable{
     private Integer id;//分类ID
     private String name;//分类名称
     private Integer sort;//分类排序
+    private Blog blog;
+    private Integer count;
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public Blog getBlog() {
+        return blog;
+    }
+
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+    }
 
     public Integer getId() {
         return id;

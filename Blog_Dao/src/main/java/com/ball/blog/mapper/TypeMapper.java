@@ -11,4 +11,5 @@ public interface TypeMapper {
     Type  selectTypeByName(String name);
     Type  selectTypeById(Integer id);
     void  updateType(Type type);
+    List<Type> portalSelectType(Type type);
 }

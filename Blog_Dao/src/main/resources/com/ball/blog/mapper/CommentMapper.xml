@@ -12,6 +12,7 @@
     <association property="user" javaType="user">
         <id column="id" property="id"/>
         <result property="username" column="username"/>
+        <result property="head" column="head"/>
     </association>
     <association property="blog" javaType="blog">
         <id property="id" column="id"/>
@@ -30,7 +31,13 @@
           <include refid="comment_where"/>
         </where>
     </select>
+    <select id="selectCommentByBid" parameterType="int" resultMap="CommentUserBlogResultMap">
+        SELECT * FROM COMMENT,USER WHERE blog_id=#{id} AND user.id=comment.user_id ORDER  BY TIME;
+    </select>
     <delete id="deleteComment" parameterType="int">
         delete from comment where id=#{id}
     </delete>
+    <insert id="insertComment" parameterType="comment">
+        insert into comment  values (#{id},#{content},#{time},#{user_id},#{blog_id});
+    </insert>
 </mapper>

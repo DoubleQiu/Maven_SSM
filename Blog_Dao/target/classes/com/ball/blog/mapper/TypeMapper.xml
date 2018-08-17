@@ -33,4 +33,18 @@
     <update id="updateType" parameterType="type">
         update type set name=#{name},sort=#{sort} where id=#{id}
     </update>
+
+    <resultMap id="portalTypeResultMap" type="type">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sort" column="sort"/>
+        <result property="count" column="count"/>
+        <association property="blog" javaType="blog">
+            <id property="id" column="id"/>
+            <result property="type_id" column="type_id"/>
+        </association>
+    </resultMap>
+    <select id="portalSelectType" resultType="type" resultMap="portalTypeResultMap">
+        SELECT type.*,blog.type_id bt_id,COUNT(*) count FROM blog,TYPE WHERE blog.type_id=type.id GROUP BY type.name
+    </select>
 </mapper>

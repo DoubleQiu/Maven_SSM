@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ball.blog.mapper.BlogMapper">
-    <resultMap type="blog" id="blogTypeResultMap" >
+    <resultMap type="blog" id="blogTypeResultMap">
         <id property="id" column="id"/>
         <result property="title" column="title"/>
         <result property="content" column="content"/>
@@ -11,15 +11,28 @@
         <result property="praise" column="praise"/>
         <result property="read" column="read"/>
         <result property="type_id" column="type_id"/>
+        <result property="count" column="count"/>
         <association property="type" javaType="type">
             <id property="id" column="id"/>
             <result property="name" column="name"/>
         </association>
+        <collection property="commentList" javaType="list" ofType="comment">
+            <id property="id" column="id"/>
+            <result property="content" column="content"/>
+            <result property="time" column="time"/>
+            <result property="user_id" column="user_id"/>
+            <result property="blog_id" column="blog_id"/>
+            <association property="user" javaType="user">
+                <id column="id" property="id"/>
+                <result property="username" column="username"/>
+                <result property="head" column="head"/>
+            </association>
+        </collection>
     </resultMap>
     <sql id="blog_where">
         type.id=blog.type_id
-        <if test="title!=null || title!=''" >
-          and  title like '%${title}%'
+        <if test="title!=null || title!=''">
+            and title like '%${title}%'
         </if>
     </sql>
     <select id="selectBlogList" parameterType="blog" resultMap="blogTypeResultMap">
@@ -28,9 +41,25 @@
             <include refid="blog_where"/>
         </where>
     </select>
+
+    <select id="frontSelectBlogList" parameterType="blog" resultMap="blogTypeResultMap">
+        SELECT *  FROM blog ORDER BY blog.time desc
+    </select>
+
+    <select id="frontSelectBlogFind" parameterType="blog" resultMap="blogTypeResultMap">
+        SELECT *,COUNT(*) count FROM blog,COMMENT WHERE blog.id=comment.blog_id AND  blog.title like '%${title}%' GROUP BY blog.id ORDER BY blog.time desc
+    </select>
+
     <select id="selectBlogById" parameterType="int" resultMap="blogTypeResultMap">
         SELECT BLOG.*,TYPE.name FROM BLOG,TYPE WHERE type.id=blog.type_id AND blog.id=#{id}
     </select>
+    <select id="frontSelectBlogById" parameterType="int" resultMap="blogTypeResultMap">
+          SELECT *  FROM blog WHERE  blog.id=#{id}
+-- SELECT * FROM blog,COMMENT,USER
+-- WHERE blog.id=comment.blog_id AND comment.user_id=user.id AND blog.id=#{iid
+-- ORDER BY blog.time desc
+    </select>
+
     <select id="selectBlogByTid" parameterType="int" resultType="blog">
         SELECT *  FROM BLOG  WHERE type_id=#{id}
     </select>
@@ -43,4 +72,11 @@
     <update id="updateBlog" parameterType="blog">
         update blog set title=#{title},content=#{content},type_id=#{type_id} where id=#{id}
     </update>
+    <update id="updateBlogRead" parameterType="blog">
+         update blog set  blog.read=#{read} where id=#{id}
+    </update>
+    <select id="findBlogByType" parameterType="int" resultMap="blogTypeResultMap">
+        SELECT *  FROM blog  WHERE  type_id=#{id} ORDER BY blog.time desc
+    </select>
+
 </mapper>

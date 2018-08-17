@@ -186,6 +186,7 @@ a:hover {
 .comment .content img {
     vertical-align: bottom;
     width: 40px;
+    height: 40px;
 }
 
 .comment .content small {
@@ -226,20 +227,19 @@ a:hover {
     width: 680px;
     height: 80px;
 }
-
+.section{
+    min-height:300px;
+}
 .section .article {
     margin-left: 40px;
     margin-right: 20px;
     margin-bottom: 10px;
     border-bottom: 1px dashed #555;
-
 }
-
 .section .footer {
     margin-left: 40px;
     margin-bottom: 10px;
 }
-
 .section .article .article-date {
     padding: 5px 0;
 }
@@ -268,7 +268,7 @@ a:hover {
 .aside {
     width: 246px;
     height: 300px;
-    float: left;
+    float: right;
     margin-left: 20px;
     margin-bottom: 20px;
     border: 1px solid rgba(240, 240, 240, .9);

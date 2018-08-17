@@ -1,8 +1,10 @@
 package com.ball.blog.controller;
 
 import com.ball.blog.po.Blog;
+import com.ball.blog.po.Comment;
 import com.ball.blog.po.Type;
 import com.ball.blog.service.BlogService;
+import com.ball.blog.service.CommentService;
 import com.ball.blog.service.TypeService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -26,7 +28,8 @@ public class BlogController {
     @Resource(name="blogService")
     private BlogService blogService;
     private Blog blog;
-
+    @Resource(name="commentService")
+    private CommentService commentService;
     @RequestMapping("/bloginfo")
     public ModelAndView bloginfo(Blog blog,Integer pageNum){
         if(pageNum==null){
@@ -57,6 +60,22 @@ public class BlogController {
         modelAndView.addObject("page",blogPage);
         modelAndView.addObject("title",blog.getTitle());
         modelAndView.setViewName("/Blog-Back/back-blog-find");
+        return modelAndView;
+    }
+    @RequestMapping("/frontFindBlogByName")
+    public  ModelAndView frontFindBlogByName(Blog blog){
+        List<Blog> blogList=blogService.frontSelectBlogFind(blog);
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("blogList",blogList);
+        modelAndView.setViewName("/Blog-Portal/index");
+        return modelAndView;
+    }
+    @RequestMapping("/findBlogByType")
+    public ModelAndView findBlogByType(Integer id){
+        List<Blog> blogList=blogService.findBlogByType(id);
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("blogList",blogList);
+        modelAndView.setViewName("/Blog-Portal/index");
         return modelAndView;
     }
 
@@ -95,5 +114,20 @@ public class BlogController {
     public ModelAndView updateBlog(Blog blog){
         blogService.updateBlog(blog);
         return  new ModelAndView("redirect:/blog/bloginfo.action");
+    }
+
+    @RequestMapping("/frontBlogInfo")
+    public ModelAndView frontBlogInfo(Blog form){
+        blog=blogService.frontSelectBlogById(form.getId());
+        if(form.getRead()!=null){
+            blog.setRead(form.getRead()+1);
+            blogService.updateBlogRead(blog);
+        }
+        List<Comment> commentList=commentService.selectCommentByBid(blog.getId());
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("blog",blog);
+        modelAndView.addObject("commentList",commentList);
+        modelAndView.setViewName("/Blog-Portal/blog");
+        return modelAndView;
     }
 }

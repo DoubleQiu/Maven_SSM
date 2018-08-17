@@ -39,4 +39,9 @@ public class TypeServiceImpl implements TypeService {
     public void updateType(Type type) {
         typeMapper.updateType(type);
     }
+
+    @Override
+    public List<Type> portalSelectType(Type type) {
+        return typeMapper.portalSelectType(type);
+    }
 }

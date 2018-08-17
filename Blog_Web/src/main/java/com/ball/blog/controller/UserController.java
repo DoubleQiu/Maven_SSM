@@ -42,15 +42,15 @@ public class UserController{
         map.put("password",password);
         user=userService.login(map);
         User blogger=userService.selectByUserPermission("博主");
-        List<Type> typeList=typeService.selectTypeList(null);
-        List<Blog> blogList=blogService.selectBlogList(null);
+        List<Type> typeList=typeService.portalSelectType(null);
+        List<Blog> blogList=blogService.frontSelectBlogList(null);
         if(user!=null){
             //用户信息
             session.setAttribute("user",user);
             session.setAttribute("blogger",blogger);
             session.setAttribute("typeList",typeList);
-            session.setAttribute("blogList",blogList);
-
+//            modelAndView.addObject("typeList",typeList);
+            modelAndView.addObject("blogList",blogList);
             modelAndView.setViewName("/Blog-Portal/index");
         }
         else {
@@ -62,6 +62,18 @@ public class UserController{
         return modelAndView;
     }
 
+    @RequestMapping("/indexPro")
+    public ModelAndView indexPro(HttpSession session){
+        ModelAndView modelAndView =new ModelAndView();
+        User blogger=userService.selectByUserPermission("博主");
+        List<Type> typeList=typeService.portalSelectType(null);
+        List<Blog> blogList=blogService.frontSelectBlogList(null);
+        session.setAttribute("typeList",typeList);
+        session.setAttribute("blogList",blogList);
+        session.setAttribute("blogger",blogger);
+        modelAndView.setViewName("/Blog-Portal/index");
+        return  modelAndView;
+    }
     @RequestMapping("/backLogin")
     public ModelAndView backLogin(String username, String password,HttpSession session){
         ModelAndView modelAndView =new ModelAndView();

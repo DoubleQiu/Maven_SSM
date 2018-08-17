@@ -20,4 +20,14 @@ public class CommentServiceImpl implements CommentService {
     public void deleteComment(Integer id) {
         commentMapper.deleteComment(id);
     }
+
+    @Override
+    public List<Comment> selectCommentByBid(Integer id) {
+        return commentMapper.selectCommentByBid(id);
+    }
+
+    @Override
+    public void insertComment(Comment comment) {
+        commentMapper.insertComment(comment);
+    }
 }
